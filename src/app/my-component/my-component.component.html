@@ -1,0 +1,19 @@
+<p>Choisi ton pokémon :</p>
+<input type="text" [(ngModel)]="search">
+
+<!--<p>{{id}}</p>
+
+<br><br>
+<input type="text" readonly [(ngModel)]="id">-->
+
+&nbsp;
+
+<select  [(ngModel)]="choice">
+        <option *ngFor="let pokemon of (Pokemons | filterPokemonPipe : search)">{{pokemon.nom}}</option>
+</select>
+
+&nbsp;
+
+<button type="submit" (click)="foo(choice)">Go !</button>
+
+<p>Mon pokémon est : {{MyPokemon}} (id : {{MyPokeId}})</p>
