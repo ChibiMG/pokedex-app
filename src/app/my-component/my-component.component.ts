@@ -18,7 +18,8 @@ export class MyComponentComponent {
   private Pokemons: Pokemon[];
 
   private MyPokemon: Pokemon;
-  private MyPokeId: String;
+  private MyPokemonNom: String;
+  private MyPokemonId: String;
 
   constructor(){
     this.Aquali = new Pokemon("1", "Aquali");
@@ -30,8 +31,14 @@ export class MyComponentComponent {
     this.Pokemons = [this.Aquali, this.Salameche, this.Roselia, this.Psykokwak, this.Artikodin, this.Lucario];
   }
 
-  foo(pokemonChoice : Pokemon){
-    this.MyPokemon = pokemonChoice;
-    this.MyPokeId = pokemonChoice.id;
+  foo(pokemonChoice : String){
+    console.log("mon pokémon nom :" + pokemonChoice);
+    this.Pokemons.forEach(pokemon => {
+        if(pokemon.nom === pokemonChoice){
+          this.MyPokemon = pokemon;
+        }
+    });
+    this.MyPokemonNom = this.MyPokemon.nom;
+    this.MyPokemonId = this.MyPokemon.id;
   }
 }
