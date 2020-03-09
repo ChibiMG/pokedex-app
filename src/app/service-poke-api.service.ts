@@ -1,12 +1,34 @@
 import { Injectable } from '@angular/core';
-import { HttpClientModule }    from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {Pokemon} from './pokemon';
+
+const  httpOptions = {
+  headers: new HttpHeaders ( {'Content-Type': 'application/json'})
+};
 
 @Injectable({
   providedIn: 'root'
 })
-export class ServicePokeApiService {
 
-  private pokeApiUrl = 'https://pokeapi.co/';
+export class PokeApiService {
 
-  constructor() { }
+  private pokeListUrl = 'https://pokeapi.co/api/v2/pokemon?limit=964';
+  private pokeByIdUrl = 'https://pokeapi.co/api/v2/pokemon/';
+
+  constructor(private http: HttpClient) {
+
+    /*
+    getListPokemon(): Observable<any>{
+      return this.http.get(this.pokeListUrl);
+    }
+     */
+
+    /*
+    getPokemonById(pokeName : String): Observable<any>{
+      return this.http.get(this.pokeByIdUrl + pokeName);
+    }
+     */
+  }
+
 }
