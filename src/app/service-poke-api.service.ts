@@ -16,19 +16,13 @@ export class PokeApiService {
   private pokeListUrl = 'https://pokeapi.co/api/v2/pokemon?limit=964';
   private pokeByIdUrl = 'https://pokeapi.co/api/v2/pokemon/';
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient) { }
 
-    /*
-    getListPokemon(): Observable<any>{
+
+    getListPokemons(): Observable<any> {
       return this.http.get(this.pokeListUrl);
     }
-     */
-
-    /*
-    getPokemonById(pokeName : String): Observable<any>{
+    getPokemonById(pokeName: String): Observable<any> {
       return this.http.get(this.pokeByIdUrl + pokeName);
     }
-     */
-  }
-
 }
