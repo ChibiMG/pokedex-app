@@ -1,6 +1,7 @@
 # Pokdemo
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.
+The exercise instruction [is her](https://github.com/ChibiMG/teaching-jxs-angular).
 
 ## Development server
 
