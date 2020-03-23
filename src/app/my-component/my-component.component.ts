@@ -12,19 +12,22 @@ export class MyComponentComponent {
   private Pokemons: Pokemon[];
 
   private MyPokemon: Pokemon;
-  private MyPokemonNom: String;
-  private MyPokemonId: String;
+  private MyPokemonNom: string;
+  private MyPokemonId: string;
 
-  constructor(private pokeService: PokeApiService){
-    //let pokeResp;
-    //pokeService.getListPokemons().subscribe(resp => pokeResp);
-    //console.log(pokeResp);
+  constructor(private pokeService: PokeApiService) {
+    this.Pokemons = [];
+    pokeService.getListPokemons().subscribe(value => {
+            value.results.forEach((element, key) => {
+              this.Pokemons.push(new Pokemon(key, element.name, element.url));
+            });
+    });
+    console.log(this.Pokemons);
   }
 
-  foo(pokemonChoice: String){
-    //console.log("mon pokémon nom :" + pokemonChoice);
+  foo(pokemonChoice: string) {
     this.Pokemons.forEach(pokemon => {
-        if(pokemon.nom === pokemonChoice){
+        if (pokemon.nom === pokemonChoice) {
           this.MyPokemon = pokemon;
         }
     });

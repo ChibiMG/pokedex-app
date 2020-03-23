@@ -1,9 +1,11 @@
 export class Pokemon {
-    id: String;
-    nom: String;
+    id: string;
+    nom: string;
+    url: string;
 
-    constructor(id: String, nom: String){
+    constructor(id: string, nom: string, url: string){
         this.id = id;
         this.nom = nom;
+        this.url = url;
     }
 }

@@ -12,8 +12,6 @@
         <option *ngFor="let pokemon of (Pokemons | filterPokemonPipe : search)">{{pokemon.nom}}</option>
 </select>
 
-&nbsp;
-
 <button type="submit" (click)="foo(choice)">Go !</button>
 
 <p>Mon pokémon est : {{MyPokemonNom}} (id : {{MyPokemonId}})</p>
