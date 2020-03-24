@@ -5,33 +5,31 @@ import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-my-component',
-  templateUrl: './my-component.component.html',
-  styleUrls: ['./my-component.component.css']
+  templateUrl: './pokemon-search.component.html',
+  styleUrls: ['./pokemon-search.component.css']
 })
 export class MyComponentComponent {
   private Pokemons: Pokemon[];
 
   private MyPokemon: Pokemon;
-  private MyPokemonNom: string;
-  private MyPokemonId: string;
 
   constructor(private pokeService: PokeApiService) {
     this.Pokemons = [];
+    this.MyPokemon = new Pokemon('', '', '');
     pokeService.getListPokemons().subscribe(value => {
-            value.results.forEach((element, key) => {
-              this.Pokemons.push(new Pokemon(key, element.name, element.url));
-            });
+      value.results.forEach((element, key) => {
+        this.Pokemons.push(new Pokemon(key + 1, element.name, element.url));
+      });
     });
     console.log(this.Pokemons);
   }
 
   foo(pokemonChoice: string) {
-    this.Pokemons.forEach(pokemon => {
-        if (pokemon.nom === pokemonChoice) {
-          this.MyPokemon = pokemon;
-        }
+    this.pokeService.getPokemonById(pokemonChoice).subscribe(value => {
+      this.MyPokemon.id = value.id;
+      this.MyPokemon.nom = pokemonChoice;
+      this.MyPokemon.type = value.types[0].type.name;
     });
-    this.MyPokemonNom = this.MyPokemon.nom;
-    this.MyPokemonId = this.MyPokemon.id;
   }
+
 }

@@ -2,6 +2,7 @@ export class Pokemon {
     id: string;
     nom: string;
     url: string;
+    type: string;
 
     constructor(id: string, nom: string, url: string){
         this.id = id;
