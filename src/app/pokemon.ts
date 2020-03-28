@@ -3,6 +3,7 @@ export class Pokemon {
     nom: string;
     url: string;
     type: string;
+    stats: object[];
 
     constructor(id: string, nom: string, url: string){
         this.id = id;

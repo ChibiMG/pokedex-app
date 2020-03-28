@@ -1,1 +1,8 @@
-<p>pokemon-choice works!</p>
+<h3>Pokemon n°{{MyPokemon.id}} : {{MyPokemon.nom}}</h3>
+<p>Type : {{MyPokemon.type}}</p>
+<p>Stats :</p>
+<ul>
+  <li *ngFor="let stat of MyPokemon.stats">
+      {{stat.stat.name}} : {{stat.base_stat}}
+  </li>
+</ul>

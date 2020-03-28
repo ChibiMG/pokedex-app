@@ -22,7 +22,7 @@ export class PokeApiService {
     getListPokemons(): Observable<any> {
       return this.http.get(this.pokeListUrl);
     }
-    getPokemonById(pokeName: String): Observable<any> {
+    getPokemonByName(pokeName: string): Observable<any> {
       return this.http.get(this.pokeByIdUrl + pokeName);
     }
 }

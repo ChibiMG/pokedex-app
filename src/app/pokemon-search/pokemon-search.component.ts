@@ -2,20 +2,18 @@ import { Component, OnInit, SystemJsNgModuleLoader } from '@angular/core';
 import { Pokemon } from '../pokemon';
 import {PokeApiService} from '../service-poke-api.service';
 import {Observable} from 'rxjs';
+import {PokeIdService} from '../service-poke-id.service';
 
 @Component({
   selector: 'app-my-component',
   templateUrl: './pokemon-search.component.html',
   styleUrls: ['./pokemon-search.component.css']
 })
-export class MyComponentComponent {
+export class PokemonSearchComponent {
   private Pokemons: Pokemon[];
 
-  private MyPokemon: Pokemon;
-
-  constructor(private pokeService: PokeApiService) {
+  constructor(private pokeService: PokeApiService, private IdService: PokeIdService) {
     this.Pokemons = [];
-    this.MyPokemon = new Pokemon('', '', '');
     pokeService.getListPokemons().subscribe(value => {
       value.results.forEach((element, key) => {
         this.Pokemons.push(new Pokemon(key + 1, element.name, element.url));
@@ -25,11 +23,6 @@ export class MyComponentComponent {
   }
 
   foo(pokemonChoice: string) {
-    this.pokeService.getPokemonById(pokemonChoice).subscribe(value => {
-      this.MyPokemon.id = value.id;
-      this.MyPokemon.nom = pokemonChoice;
-      this.MyPokemon.type = value.types[0].type.name;
-    });
+    this.IdService.setPokemon(pokemonChoice);
   }
-
 }
