@@ -11,3 +11,5 @@ Le site propose une recherche de pokemon par son nom.
 Un champ texte permet de commencer à entrer un nom de pokemon pour faire une recherche.
 Une liste de choix permet de choisir un pokemon dont on a envie de connaitre les stats.
 
+![alt text](https://github.com/ChibiMG/pokemon/blob/master/pokemon.PNG)
+
