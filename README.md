@@ -18,3 +18,9 @@ Exemple ci-dessous :
 
 ## Ce que nous avons utilisé
 Nous avons utilisé Angular et avons utilisé l'IDE WebStorm. Nous avons utilisé les composants et les languages TypeScript et HTML.
+
+## Créateurs :
+
+Maud Garçon & Saly Knab
+
+Projet TP de Master 1 MIAGE
